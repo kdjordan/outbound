@@ -1,5 +1,5 @@
 {
-  "name": "outbound",
+  "name": "ouboundprops",
   "description": "A Vue.js project",
   "version": "1.0.0",
   "author": "kevin jordan",
@@ -10,7 +10,10 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
-    "vue": "^2.5.11"
+    "vue": "^2.5.11",
+    "vue-router": "^3.1.5",
+    "vue-scrollto": "^2.17.1",
+    "vuex": "^3.1.2"
   },
   "browserslist": [
     "> 1%",
