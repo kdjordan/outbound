@@ -1,61 +1,48 @@
 <template>
   <div id="app">
-    <div class="app-container">
-      <img src="./assets/ob-logo.svg">
-      <h1>{{ msg }}</h1>
-    </div>
+    <Header />
+    <transition name="fade">
+      <router-view></router-view>
+    </transition>
+    <transition name="fade">
+      <div v-if="getModalState">
+        <Modal />
+      </div>
+    </transition>
   </div>
 </template>
 
 <script>
+import Header from './components/Header'
+import Modal from './components/Modal'
+
 export default {
+  components: {
+    Header,
+    Modal
+  },
   name: 'app',
   data () {
     return {
       msg: 'Coming Soon...'
+    }
+  },
+  computed: {
+    getModalState() {
+      return this.$store.getters.getModalState
     }
   }
 }
 </script>
 
 <style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+@import './scss/_base.scss';
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 
-.app-container {
-    margin-top: 25%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 
-}
-
-h1, h2 {
-  font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
-
-img {
-  width: 30%;
-
-}
 </style>
