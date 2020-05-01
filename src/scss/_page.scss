@@ -1,3 +1,7 @@
+p {
+    margin: 1rem 0;
+}
+
 .options {    
     font-family: $fontRoboto;
     padding-top: 2rem;
@@ -115,7 +119,7 @@
     width: 100%;
     position: absolute;
     padding: 1.5rem 0;
-    bottom: 0;
+    top: 84vh;
     left: 0;
     right: 0;
 
@@ -129,6 +133,7 @@
 
         @media screen and (max-width: 600px) {
             flex-direction: column;
+            
         }
     }
 

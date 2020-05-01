@@ -75,7 +75,7 @@ input {
     left: 50%;
     transform: translate(-50%, -50%);
     background: $colorWhite;
-    z-index: 22;
+    z-index: 99;
     width: 40%;
     padding: 1rem 2rem 2rem 2rem;
     max-width: 700px;

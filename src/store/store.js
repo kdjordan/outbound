@@ -6,12 +6,12 @@ Vue.use(Vuex)
 export default new Vuex.Store({
 
     state: {
-       modalOpen: false,
-       homeSelection: {
+        
+        modalOpen: false,
+        homeSelection: {
            home: '',
            option: ''
-       }
-
+        }
     },
     mutations: {
         toggleModal(state) {
@@ -22,7 +22,7 @@ export default new Vuex.Store({
             state.homeSelection.home = payload.home
             state.homeSelection.option = payload.option
         }
-    },
+     },
     getters: {
        getModalState(state) {
            return state.modalOpen

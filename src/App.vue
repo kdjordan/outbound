@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <Header />
     <transition name="fade">
       <router-view></router-view>
     </transition>
@@ -8,7 +7,7 @@
       <div v-if="getModalState">
         <Modal />
       </div>
-    </transition>
+    </transition >
   </div>
 </template>
 
@@ -22,11 +21,6 @@ export default {
     Modal
   },
   name: 'app',
-  data () {
-    return {
-      msg: 'Coming Soon...'
-    }
-  },
   computed: {
     getModalState() {
       return this.$store.getters.getModalState
@@ -38,7 +32,7 @@ export default {
 <style lang="scss">
 @import './scss/_base.scss';
 .fade-enter-active, .fade-leave-active {
-  transition: opacity .5s .5s;
+  transition: opacity .5s ease-in-out;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;

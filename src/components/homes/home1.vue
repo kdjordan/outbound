@@ -1,22 +1,23 @@
 <template>
-  <div class="page">
-      <div class="info">
+<div>
+    <Header />
+  <div class="page" @click.stop="closeAll">
+      <div v-if="!this.$store.state.modalOpen" class="info">
           <div class="info__container">
               <div>
-                <div class="info-title">The Oswego Home</div>
-                <div class="info__desc">2,438 SQ FEET / 4 BED / 3.5 BATH / $549k</div>
+                    <div class="info-title">The Oswego Home</div>
+                    <div class="info__desc">2,438 SQ FEET / 4 BED / 3.5 BATH / $549k</div>
                 </div>
                 <div class="info__controls">
-                    <button class="home-button" @click="toggleDetails" :class="{buttonActive: detailsOpen}">
+                    <button class="home-button" @click.stop="toggleDetails" :class="{buttonActive: detailsOpen}">
                         DETAILS
                     </button>
-                    <button class="home-button" @click="toggleOptions" :class="{buttonActive: optionsOpen}">
+                    <button class="home-button" @click.stop="toggleOptions" :class="{buttonActive: optionsOpen}">
                         OPTIONS
                     </button>
-                    <button class="home-button" @click="toggleFloorPlan" :class="{buttonActive: floorPlanOpen}">
+                    <button class="home-button" @click.stop="toggleFloorPlan" :class="{buttonActive: floorPlanOpen}">
                         FLOORPLAN
                     </button>
-                    
                 </div>
           <div class="info__next">
               <button class="home-button">NEXT HOME&nbsp;&nbsp;&nbsp;<span>&gt;</span></button>
@@ -28,6 +29,9 @@
               <div v-if="detailsOpen" class="details">
                     <div class="details__title">The Oswego Home</div>
                     <div class="details__desc">
+                        <p>
+                        Stunning Country Estate boats custom home nestled in a 10 acre pastoral setting surrounded by beautiful views of the Coburg Hills. This 4 bedroom home offers the master on the main level w/private patio & updated master bath w/sitting area & oversized shower, Formal living & dining room w/open concept kitchen, French doors out to a covered patio perfect for entertaining or relaxing and enjoying the beautiful landscaping, pastures or take a walk down by the creek. Truly a Dream!
+                        </p>
                         <p>
                         Stunning Country Estate boats custom home nestled in a 10 acre pastoral setting surrounded by beautiful views of the Coburg Hills. This 4 bedroom home offers the master on the main level w/private patio & updated master bath w/sitting area & oversized shower, Formal living & dining room w/open concept kitchen, French doors out to a covered patio perfect for entertaining or relaxing and enjoying the beautiful landscaping, pastures or take a walk down by the creek. Truly a Dream!
                         </p>
@@ -107,10 +111,15 @@
           </transition>
       </div>
   </div>
+</div>
 </template>
 
 <script>
+import Header from '../Header'
 export default {
+    components: {
+        Header
+    },
     data() {
         return {
             home: 'Oswego',
@@ -120,6 +129,11 @@ export default {
         }
     },
     methods: {
+        closeAll(){
+            this.detailsOpen = false
+            this.optionsOpen = false
+            this.floorPlanOpen = false
+        },
         toggleDetails() {
             this.optionsOpen = false
             this.floorPlanOpen = false
@@ -155,10 +169,15 @@ export default {
 
 .page {
     background-image: url("../../assets/homes/home1/home-hero.jpg");
+    
     background-size: cover;
+    background-repeat: no-repeat;
     background-position: center;
-    height: 80vh;
+    height: 100vh;
     overflow: auto;
+    // position: absolute;
+    top: 0;
+    left: 0;
 }
 
 img {
