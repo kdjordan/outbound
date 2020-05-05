@@ -1,10 +1,95 @@
 <template>
-<div>
+<div class="page" :style="{backgroundImage: theBackgroundImage}">
     <Header />
-  <div class="page" @click.stop="closeAll">
-      <div v-if="!this.$store.state.modalOpen" class="info">
-          <div class="info__container">
-              <div>
+    <main></main>
+        <div>
+             <transition name="raise">
+                <div v-if="detailsOpen" class="details">
+                        <div class="details__title">The Oswego Home</div>
+                        <div class="details__desc">
+                            <p>
+                            Stunning Country Estate boats custom home nestled in a 10 acre pastoral setting surrounded by beautiful views of the Coburg Hills. This 4 bedroom home offers the master on the main level w/private patio & updated master bath w/sitting area & oversized shower, Formal living & dining room w/open concept kitchen, French doors out to a covered patio perfect for entertaining or relaxing and enjoying the beautiful landscaping, pastures or take a walk down by the creek. Truly a Dream!
+                            </p>
+                            <p>
+                            Stunning Country Estate boats custom home nestled in a 10 acre pastoral setting surrounded by beautiful views of the Coburg Hills. This 4 bedroom home offers the master on the main level w/private patio & updated master bath w/sitting area & oversized shower, Formal living & dining room w/open concept kitchen, French doors out to a covered patio perfect for entertaining or relaxing and enjoying the beautiful landscaping, pastures or take a walk down by the creek. Truly a Dream!
+                            </p>
+                        </div>
+                </div>
+            </transition>
+            <transition name="raise">
+                <div v-if="optionsOpen" class="options">
+                        <div class="options--1">
+                            <div class="options__title">Beach</div>
+                            <div class="options__desc">
+                                <ul>
+                                    <li>+ Sears Appliances</li>
+                                    <li>+ Choice of Exterior Color</li>
+                                    <li>+ Choice of Interior Color</li>
+                                    <li>+ Option 3</li>
+                                    <li>+ Option 4</li>
+                                    <li>+ Option 5</li>
+                                </ul>
+                                <div class="options__price">* Cost Included In Base Price</div>
+                                <div>
+                                    <button class="options__button" @click="optionSelected('beach')">SELECT</button>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="options--2">
+                            <div class="options__title">Lagoon</div>
+                            <div class="options__desc">
+                                <ul>
+                                    <li>+ Sears Appliances</li>
+                                    <li>+ Choice of Exterior Color</li>
+                                    <li>+ Choice of Interior Color</li>
+                                    <li>+ Option 3</li>
+                                    <li>+ Option 4</li>
+                                    <li>+ Option 5</li>
+                                </ul>
+                                <div class="options__price">$5,000</div>
+                                <div>
+                                    <button class="options__button" @click="optionSelected('lagoon')">SELECT</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="options--3">
+                            <div class="options__title">Open Water</div>
+                            <div class="options__desc">
+                                <ul>
+                                    <li>+ Sears Appliances</li>
+                                    <li>+ Choice of Exterior Color</li>
+                                    <li>+ Choice of Interior Color</li>
+                                    <li>+ Option 3</li>
+                                    <li>+ Option 4</li>
+                                    <li>+ Option 5</li>
+                                </ul>
+                                <div class="options__price">$10,000</div>
+                                <div>
+                                    <button class="options__button" @click="optionSelected('open water')">SELECT</button>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </transition>
+        </div>
+        <div>
+            <transition name="raise">
+                <div v-if="floorPlanOpen" class="details">
+                        <!-- <div class="details__title">Plan1</div> -->
+                        <div class="details__img">
+                        <img src="../../assets/homes/home1/floorplan-1.jpg" alt="">
+                        <img src="../../assets/homes/home1/floorplan-2.jpg" alt="">
+                        <img src="../../assets/homes/home1/floorplan-3.jpg" alt="">
+                        <img src="../../assets/homes/home1/floorplan-4.jpg" alt="">
+                        </div>
+                </div>
+            </transition>
+        </div>
+         <div class="info">
+            <div class="info__container">
+                
+                <div>
                     <div class="info-title">The Oswego Home</div>
                     <div class="info__desc">2,438 SQ FEET / 4 BED / 3.5 BATH / $549k</div>
                 </div>
@@ -19,98 +104,13 @@
                         FLOORPLAN
                     </button>
                 </div>
-          <div class="info__next">
-              <button class="home-button">NEXT HOME&nbsp;&nbsp;&nbsp;<span>&gt;</span></button>
-          </div>
-          </div>
-      </div>
-      <div>
-          <transition name="raise">
-              <div v-if="detailsOpen" class="details">
-                    <div class="details__title">The Oswego Home</div>
-                    <div class="details__desc">
-                        <p>
-                        Stunning Country Estate boats custom home nestled in a 10 acre pastoral setting surrounded by beautiful views of the Coburg Hills. This 4 bedroom home offers the master on the main level w/private patio & updated master bath w/sitting area & oversized shower, Formal living & dining room w/open concept kitchen, French doors out to a covered patio perfect for entertaining or relaxing and enjoying the beautiful landscaping, pastures or take a walk down by the creek. Truly a Dream!
-                        </p>
-                        <p>
-                        Stunning Country Estate boats custom home nestled in a 10 acre pastoral setting surrounded by beautiful views of the Coburg Hills. This 4 bedroom home offers the master on the main level w/private patio & updated master bath w/sitting area & oversized shower, Formal living & dining room w/open concept kitchen, French doors out to a covered patio perfect for entertaining or relaxing and enjoying the beautiful landscaping, pastures or take a walk down by the creek. Truly a Dream!
-                        </p>
-                    </div>
-              </div>
-          </transition>
-      </div>
-      <div>
-          <transition name="raise">
-              <div v-if="optionsOpen" class="options">
-                    <div class="options--1">
-                        <div class="options__title">Beach</div>
-                        <div class="options__desc">
-                            <ul>
-                                <li>+ Sears Appliances</li>
-                                <li>+ Choice of Exterior Color</li>
-                                <li>+ Choice of Interior Color</li>
-                                <li>+ Option 3</li>
-                                <li>+ Option 4</li>
-                                <li>+ Option 5</li>
-                            </ul>
-                            <div class="options__price">* Cost Included In Base Price</div>
-                            <div>
-                                <button class="options__button" @click="optionSelected('beach')">SELECT</button>
-                            </div>
-                        </div>
-                        
-                    </div>
-                    <div class="options--2">
-                        <div class="options__title">Lagoon</div>
-                        <div class="options__desc">
-                            <ul>
-                                <li>+ Sears Appliances</li>
-                                <li>+ Choice of Exterior Color</li>
-                                <li>+ Choice of Interior Color</li>
-                                <li>+ Option 3</li>
-                                <li>+ Option 4</li>
-                                <li>+ Option 5</li>
-                            </ul>
-                            <div class="options__price">$5,000</div>
-                            <div>
-                                <button class="options__button" @click="optionSelected('lagoon')">SELECT</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="options--3">
-                        <div class="options__title">Open Water</div>
-                        <div class="options__desc">
-                            <ul>
-                                <li>+ Sears Appliances</li>
-                                <li>+ Choice of Exterior Color</li>
-                                <li>+ Choice of Interior Color</li>
-                                <li>+ Option 3</li>
-                                <li>+ Option 4</li>
-                                <li>+ Option 5</li>
-                            </ul>
-                            <div class="options__price">$10,000</div>
-                            <div>
-                                <button class="options__button" @click="optionSelected('open water')">SELECT</button>
-                            </div>
-                        </div>
-                    </div>
-              </div>
-          </transition>
-      </div>
-      <div>
-          <transition name="raise">
-              <div v-if="floorPlanOpen" class="details">
-                    <!-- <div class="details__title">Plan1</div> -->
-                    <div class="details__img">
-                       <img src="../../assets/homes/home1/floorplan-1.jpg" alt="">
-                       <img src="../../assets/homes/home1/floorplan-2.jpg" alt="">
-                       <img src="../../assets/homes/home1/floorplan-3.jpg" alt="">
-                       <img src="../../assets/homes/home1/floorplan-4.jpg" alt="">
-                    </div>
-              </div>
-          </transition>
-      </div>
-  </div>
+            <div class="info__next">
+                <button class="home-button" @click="goPreviousHome">PREVIOUS</button>
+                <button class="home-button" @click="goNextHome">NEXT</button>
+            </div>
+            </div>
+            
+        </div>
 </div>
 </template>
 
@@ -122,6 +122,7 @@ export default {
     },
     data() {
         return {
+            theBackgroundImage: 'url("../src/assets/homes/home1/home-hero.jpg") !important',
             home: 'Oswego',
             detailsOpen: false,
             optionsOpen: false,
@@ -129,6 +130,12 @@ export default {
         }
     },
     methods: {
+        goNextHome(){
+            this.$router.push('/home2')
+        },
+        goPreviousHome(){
+            this.$router.push('/home4')
+        },
         closeAll(){
             this.detailsOpen = false
             this.optionsOpen = false
@@ -166,18 +173,23 @@ export default {
 @import '../../scss/_page.scss';
 @import '../../scss/_animations.scss';
 
+main {
+    flex: 1 0 auto;
+}
 
 .page {
-    background-image: url("../../assets/homes/home1/home-hero.jpg");
-    
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 100vh;
-    overflow: auto;
-    // position: absolute;
-    top: 0;
-    left: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+
+    &__container {
+        flex: 1 0 auto;
+        min-height: 100%;
+    }
 }
 
 img {

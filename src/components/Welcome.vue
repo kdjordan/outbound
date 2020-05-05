@@ -1,23 +1,23 @@
 <template>
 <div>
-    <!-- <Header /> -->
-  <div class="page">
-      <div class="page__container">
-          <div class="page__content">
+  <div class="welcome">
+      <div class="welcome__container">
+          <div class="welcome__content">
               <div class="welcome__title">OutBound Properties</div>
                 <div class="welcome__subtitle">- Presents - </div>
                 <div class="welcome__images">
                     <div class="welcome__images--controls" @click="bumpIndex('down')">&lt;</div>
-                        <img :src="logos[index]" :class="{sixty: getSixty, forty: getForty}">
+                        <img :src="logos[index]" :class="{sixty: getSixty, forty: getForty}" :key="index">
                     <div class="welcome__images--controls" @click="bumpIndex('up')">&gt;</div>
                 </div>
                 <div>
-                    <p>Maple Wood Grove is an exclusive small develoment in Northeast Portland Oregon. This project is the culmination of years work by Valerie Nipper and Don Etter. Both are long time Portland residents, and have deep roots in the community. All homes will be built by Both Sides Construction, a business owned and operated by Don for 30+ years.</p>
-                    <div class="details">
+                    <p>Maple Wood Grove is an exclusive development in Northeast Portland Oregon. This project is the culmination of years work by Valerie Nipper and Don Etter. Both are long time Portland residents, and have deep roots in the community. All homes will be built by Both Sides Construction, a business owned and operated by Don for 30+ years.</p>
+                    <div class="welcome__details">
                         <div>LOCATION: 169th St and Halsey</div>
                         <div>HOMES AVAILABLE: 4</div>
-                        <div class="details__buttons">
-                            <button class="btn-both-sides">Begin Tour of MAple Wood Grove</button>
+                        <div class="welcome__details--buttons">
+                            <button class="btn-both-sides"><router-link to="/home1">Begin Tour of MAple Wood Grove</router-link></button>
+                            <!-- <a href="http://10.0.0.57:8080/home1" class="details__buttons--link"><button class="btn-both-sides">Begin Tour of MAple Wood Grove</button></a> -->
                             <a href="https://www.bothsidesconstruction.com/" target="_blank" class="details__buttons--link"><button class="btn-both-sides">Learn ABout Both Sides Construction</button></a>
                         </div>
                     </div>
@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import Header from './Header'
+
 export default {
     data() {
         return {
@@ -51,9 +51,6 @@ export default {
             ]
         }
     },
-    components: {
-        Header
-    },
     methods: {
         bumpIndex(dir) {
             if (dir == 'up'){
@@ -69,6 +66,11 @@ export default {
                     this.index--
                 }
             }
+        },
+        resetState() {
+            console.log('caxlled')
+            this.isWelcome = true,
+            this.index = 0
         }
     },
     computed: {
@@ -87,6 +89,10 @@ export default {
             }
         }
     },
+    beforeDestroy() {
+            this.resetState();
+        }
+
 }
 </script>
 
@@ -114,13 +120,14 @@ p {
     text-align: center;
 }
 
-.page {
+.welcome {
     background-image: url("../assets/homes/home1/home-hero.jpg");
     
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     height: 100vh;
+    position: absolute;
     top: 0;
     left: 0;
 
@@ -129,11 +136,9 @@ p {
         width: 80%;
         margin: 0 auto;
         padding: 2rem;
-        // margin-top: 7%;
-        position: absolute;
-        // top: 1%;
-        left: 50%;
-        transform: translate(-50%, 5%);
+        margin-top: 2%;
+        min-height: 0% !important;
+     
     }
 
     &__content {
@@ -186,6 +191,12 @@ img {
             }
         }
     }
+
+    &__details {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 .btn-both-sides {
@@ -194,6 +205,7 @@ img {
     padding: .5rem 1rem;
     text-transform: uppercase;
     background: transparent;
+    outline: none;
     border: 1px solid $color1;
     color: $color1;
     transition: all .4s ease;

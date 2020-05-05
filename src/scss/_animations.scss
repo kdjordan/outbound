@@ -1,22 +1,24 @@
 /* Enter and leave animations can use different */
 /* durations and timing functions.              */
 .raise-enter-active {
-    animation: raiseLower .5s ease-in-out;
+    animation: raiseLower .5s linear;
   }
   .raise-leave-active {
-    animation: raiseLower .5s ease-in-out reverse;
+    animation: raiseLower .5s linear reverse;
   }
   @keyframes raiseLower {
     0% {
-      height: 0vh;
+      max-height: 0vh;
+      opacity: 0;
     }
     100% {
-      height: 70vh;
+      max-height: 80vh;
+      opacity: 1;
     }
   }
   
   .fade-enter-active, .fade-leave-active {
-    transition: opacity .5s ease-in-out;
+    transition: all .5s ease-in-out;
   }
   .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
     opacity: 0;

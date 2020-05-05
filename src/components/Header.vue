@@ -7,10 +7,14 @@
           <div class="header-container__right">
             <nav>
                 <ul>
-                    <li>Oswego</li>
+                    <router-link to="/home1" class="header-container__right--link">Oswego</router-link>
+                    <router-link to="/home2" class="header-container__right--link">Columbia</router-link>
+                    <router-link to="/home3" class="header-container__right--link">Laurelwood</router-link>
+                    <router-link to="/home4" class="header-container__right--link">Willamette</router-link>
+                    <!-- <li>Oswego</li>
                     <li>Columbia</li>
                     <li>Laurelwood</li>
-                    <li>Willamette</li>
+                    <li>Willamette</li> -->
                 </ul>
             </nav>
           </div>
@@ -28,10 +32,6 @@ export default {
 @import '../scss/_variables.scss';
 
 .header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
     background: transparent;
     z-index: 2; 
    
@@ -53,13 +53,23 @@ export default {
         }
 
         &__right {
-            
-            color: white;
             text-transform: uppercase;
             font-weight: bold;
 
-            & li {
+            &--link {
+                margin: 0 1rem;
+                padding: .1rem 0;
                 letter-spacing: .2rem;
+                color: $colorWhite;
+                border-bottom: 2px solid transparent;
+                border-top: 2px solid transparent;
+                transition: all .4s linear;
+
+                &:hover {
+                    color: #042a64;
+                    border-bottom: 2px solid #042a64;
+                    border-top: 2px solid #042a64;
+                }
             }
         }
 
