@@ -1,5 +1,5 @@
 <template>
-<div class="page" :style="{backgroundImage: theBackgroundImage}">
+<div class="page4">
     <Header />
     <main @click="closeAll"></main>
         <div>
@@ -125,7 +125,6 @@ export default {
     },
     data() {
         return {
-            theBackgroundImage: 'url("../src/assets/homes/home4/home4-hero.jpg") !important',
             home: 'Willamette',
             detailsOpen: false,
             optionsOpen: false,
@@ -187,8 +186,8 @@ main {
     flex: 1 0 auto;
 }
 
-.page {
-  
+.page4 {
+    background-image: url("./../../assets/homes/home4/home4-hero.jpg") !important;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
