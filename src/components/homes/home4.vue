@@ -2,7 +2,6 @@
 <div class="page4">
     <Header />
     <main @click="closeAll"></main>
-        <div>
              <transition name="raise">
                 <div v-if="detailsOpen" class="details">
                         <div class="details__title">The Willamette Home</div>
@@ -75,8 +74,6 @@
                     <div class="tip">Select to Reseve Your Spot for this Home</div>
                 </div>
             </transition>
-        </div>
-        <div>
             <transition name="raise">
                 <div v-if="floorPlanOpen" class="details">
                         <!-- <div class="details__title">Plan1</div> -->
@@ -88,7 +85,6 @@
                         </div>
                 </div>
             </transition>
-        </div>
          <div class="info">
             <div class="info__container">
                 

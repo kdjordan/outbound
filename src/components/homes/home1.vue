@@ -3,9 +3,9 @@
     <Header />
     <main @click="closeAll"></main>
         <div>
-             <transition name="raise">
-                <div v-if="detailsOpen" class="details">
-                        <div class="details__title">The Oswego Home</div>
+            <transition name="raise">
+                <div v-show="detailsOpen" class="details">
+                        <div class="details__title">The Columbia Home</div>
                         <div class="details__desc">
                             <p>
                             Stunning Country Estate boats custom home nestled in a 10 acre pastoral setting surrounded by beautiful views of the Coburg Hills. This 4 bedroom home offers the master on the main level w/private patio & updated master bath w/sitting area & oversized shower, Formal living & dining room w/open concept kitchen, French doors out to a covered patio perfect for entertaining or relaxing and enjoying the beautiful landscaping, pastures or take a walk down by the creek. Truly a Dream!
@@ -32,7 +32,7 @@
                                 </ul>
                                 <div class="options__price">* Cost Included In Base Price</div>
                                 <div>
-                                    <button class="options__button" @click="optionSelected('beach')">SELECT</button>
+                                    <button class="options__button" @click.stop="optionSelected('beach')">SELECT</button>
                                 </div>
                             </div>
                             
@@ -50,7 +50,7 @@
                                 </ul>
                                 <div class="options__price">$5,000</div>
                                 <div>
-                                    <button class="options__button" @click="optionSelected('lagoon')">SELECT</button>
+                                    <button class="options__button" @click.stop="optionSelected('lagoon')">SELECT</button>
                                 </div>
                             </div>
                         </div>
@@ -67,7 +67,7 @@
                                 </ul>
                                 <div class="options__price">$10,000</div>
                                 <div>
-                                    <button class="options__button" @click="optionSelected('open water')">SELECT</button>
+                                    <button class="options__button" @click.stop="optionSelected('open water')">SELECT</button>
                                 </div>
                             </div>
                         </div>
@@ -180,7 +180,7 @@ export default {
 @import '../../scss/_variables.scss';
 @import '../../scss/_typography.scss';
 @import '../../scss/_page.scss';
-@import '../../scss/_animations.scss';
+// @import '../../scss/_animations.scss';
 
 main {
     flex: 1 0 auto;
@@ -207,6 +207,24 @@ img {
     object-fit: cover;
 }
 
+.raise-enter-active {
+    animation: raiseLower .3s linear;
+  }
+  .raise-leave-leave {
+    animation: raiseLower .3s linear reverse;
+  }
+  @keyframes raiseLower {
+    0% {
+      max-height: 0vh;
+      opacity: 0;
+    }
+    100% {
+      max-height: 80vh;
+      opacity: 1;
+    }
+  }
+  
+  
 
 
 </style>
