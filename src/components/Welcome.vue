@@ -13,10 +13,12 @@
                 <div>
                     <p>Maple Wood Grove is an exclusive development in Northeast Portland Oregon. This project is the culmination of years work by Valerie Nipper and Don Etter. Both are long time Portland residents, and have deep roots in the community. All homes will be built by Both Sides Construction, a business owned and operated by Don for 30+ years.</p>
                     <div class="welcome__details">
-                        <div>LOCATION: 169th St and Halsey</div>
-                        <div>HOMES AVAILABLE: 4</div>
+                        <div class="welcome__details--location">
+                            <div>LOCATION: <a href="https://goo.gl/maps/Wp3XGMfnXJQ2byUJ8" target="_blank"> 169th St and Halsey</a></div>
+                            <div>HOMES AVAILABLE: 4</div>
+                        </div>
                         <div class="welcome__details--buttons">
-                            <button class="btn-both-sides"><router-link to="/home1">Begin Tour of MAple Wood Grove</router-link></button>
+                            <router-link to="/home1"><button class="btn-both-sides">Begin Tour of MAple Wood Grove</button></router-link>
                             <!-- <a href="http://10.0.0.57:8080/home1" class="details__buttons--link"><button class="btn-both-sides">Begin Tour of MAple Wood Grove</button></a> -->
                             <a href="https://www.bothsidesconstruction.com/" target="_blank" class="details__buttons--link"><button class="btn-both-sides">Learn ABout Both Sides Construction</button></a>
                         </div>
@@ -103,8 +105,9 @@ export default {
 
 p {
     width: 80%;
-    margin: 0 auto;
-    padding: 2rem 0;
+    margin: 0 auto !important;
+    text-align: center;
+    padding: 2rem 0 1rem 0;
 }
 
 .forty {
@@ -118,6 +121,7 @@ p {
 
 .details {
     text-align: center;
+    
 }
 
 .welcome {
@@ -162,7 +166,6 @@ img {
         font-size: 2rem;
         text-transform: uppercase;
         text-align: center;
-        // margin: 1rem 0;
     }
 
     &__subtitle {
@@ -196,6 +199,23 @@ img {
         display: flex;
         flex-direction: column;
         align-items: center;
+        font-family: $fontRoboto;
+
+        &--location {
+            text-align: center;
+            margin-bottom: 1rem;
+
+            & a {
+                color: #2c3e50;
+                // padding-bottom: 2px;
+                border-bottom: 1px solid #2c3e50;
+                transition: all .4s;
+
+                &:hover {
+                    border-bottom: 1px solid transparent;
+                }
+            }
+        }
     }
 }
 

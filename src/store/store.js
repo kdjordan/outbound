@@ -6,10 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
 
     state: {
-        homeIndex: 1,
-        backgroundImages: [
-            'require("../../assets/homes/home1/home-hero.jpg")'
-        ],
+       isModalContact: false,
         modalOpen: false,
         homeSelection: {
            home: '',
@@ -34,18 +31,23 @@ export default new Vuex.Store({
         toggleModal(state) {
             state.modalOpen = !state.modalOpen
         },
+        setModalContact(state, payload) {
+            state.isModalContact = payload;
+        },
         setHomeSelection(state, payload) {
-            console.log(payload)
-            state.homeSelection.home = payload.home
-            state.homeSelection.option = payload.option
+            state.homeSelection = payload
         }
+        
      },
     getters: {
        getModalState(state) {
            return state.modalOpen
        },
        getHomeSelected(state) {
-           return state.homeSelection
+        return state.homeSelection
+       },
+       getModalContact(state) {
+           return state.isModalContact
        }
     },
     actions: {

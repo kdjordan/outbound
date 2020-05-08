@@ -1,6 +1,14 @@
 p {
     margin: 1rem 0;
 }
+.tip {
+    background: $color1;
+    color: $colorWhite;
+    font-style: italic;
+    font-weight: bold;
+    padding: 5px 10px;
+    border: 1px solid $color1;
+}
 
 .options {    
     font-family: $fontRoboto;
@@ -8,10 +16,19 @@ p {
     background: $colorWhite;
     opacity: 98%;
     z-index: 5;
-    width: 100%;
+    
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
-    align-items: flex-start;
+    align-items: center;
+    
+    &__container {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-bottom: 2rem;
+    }
 
     &__title {
         text-transform: uppercase;
@@ -60,23 +77,18 @@ p {
 
     }
 }
-// <div class="info-title">The Columbia Home</div>
-//                     <div class="info__desc">2,178 SQ FEET / 3 BED / 3 BATH / $499k</div>
 
 .details {    
-    padding-bottom: 3rem;
+    font-family: $fontRoboto;
+    padding: 2rem 0;
     background: $colorWhite;
     opacity: 98%;
-    width: 100%;
-    max-height: auto;
     z-index: 5;
-
-    // font-family: $fontRoboto;
-    // padding: 2rem 0;
-    // background: $colorWhite;
-    // opacity: 98%;
-    // z-index: 5;
-    // width: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     
 
     &__title {

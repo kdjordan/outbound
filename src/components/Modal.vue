@@ -2,10 +2,13 @@
   <div class="modal-overlay" @click="toggleModal">
       <div class="modal" @click.stop>
             <div class="modal__close" aria-label="Close Account Info Modal Box" @click="toggleModal">&times;</div>
-            <div class="modal__title">Great Choice !</div>
-            <div class="modal__mssg">Please enter your information below to reserve your spot on the list for this home. We will be answering all inquiries in the order in which we receive them. Due to high interest, please allow us a day or two to respond. We are looking forward to speaking with you !  
+            <div v-if="!getIsModalContact" class="modal__title">Great Choice !</div>
+            <div v-else class="modal__title">Thanks for Your Interest</div>
+            <div v-if="!getIsModalContact" class="modal__mssg">Please enter your information below to reserve your spot on the list for this home. We will be answering all inquiries in the order in which we receive them. Due to high interest, please allow us a day or two to respond. We are looking forward to speaking with you !  
             </div>
-            <div class="modal__order">
+            <div v-else class="modal__mssg">Simply let us know who you are and we'll contact you as soon as we can.   
+            </div>
+            <div v-if="!getIsModalContact" class="modal__order">
                 <div>HOME: <span>The {{getHome.home}} Home</span></div>
                 <div>OPTIONS: <span>{{getHome.option}}</span></div>
             </div>
@@ -36,6 +39,9 @@ methods: {
 computed: {
     getHome(){
         return this.$store.getters.getHomeSelected
+    },
+    getIsModalContact() {
+        return this.$store.getters.getModalContact
     }
 }
 }

@@ -1,7 +1,7 @@
 <template>
 <div class="page" :style="{backgroundImage: theBackgroundImage}">
     <Header />
-    <main></main>
+    <main @click="closeAll"></main>
         <div>
              <transition name="raise">
                 <div v-if="detailsOpen" class="details">
@@ -18,6 +18,7 @@
             </transition>
             <transition name="raise">
                 <div v-if="optionsOpen" class="options">
+                    <div class="options__container">
                         <div class="options--1">
                             <div class="options__title">Beach</div>
                             <div class="options__desc">
@@ -70,6 +71,8 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="tip">Select to Reseve Your Spot for this Home</div>
                 </div>
             </transition>
         </div>
@@ -144,22 +147,29 @@ export default {
         toggleDetails() {
             this.optionsOpen = false
             this.floorPlanOpen = false
-            this.detailsOpen = !this.detailsOpen
+            setTimeout(() => {
+                this.detailsOpen = !this.detailsOpen
+            }, 300)
         },
         toggleOptions() {
             this.detailsOpen = false
             this.floorPlanOpen = false
-            this.optionsOpen = !this.optionsOpen
+             setTimeout(() => {
+                 this.optionsOpen = !this.optionsOpen
+            }, 300)
         },
         toggleFloorPlan() {
             this.optionsOpen = false
             this.detailsOpen = false
-            this.floorPlanOpen = !this.floorPlanOpen
+             setTimeout(() => {
+                 this.floorPlanOpen = !this.floorPlanOpen
+            }, 300)
         },
         optionSelected(option) {
             this.optionsOpen = false
-            this.$store.commit('setHomeSelection', {home: 'oswego', option: option})
+            this.$store.commit('setHomeSelection', {home: 'Oswego', option: option})
             this.$store.commit('toggleModal')
+            this.$store.commit('setModalContact', false)
             console.log(option)
         }
     }

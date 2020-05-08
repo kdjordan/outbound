@@ -7,14 +7,12 @@
           <div class="header-container__right">
             <nav>
                 <ul>
-                    <router-link to="/home1" class="header-container__right--link">Oswego</router-link>
-                    <router-link to="/home2" class="header-container__right--link">Columbia</router-link>
-                    <router-link to="/home3" class="header-container__right--link">Laurelwood</router-link>
-                    <router-link to="/home4" class="header-container__right--link">Willamette</router-link>
-                    <!-- <li>Oswego</li>
-                    <li>Columbia</li>
-                    <li>Laurelwood</li>
-                    <li>Willamette</li> -->
+                    <router-link to="/welcome" class="header-container__right--link">Home</router-link>
+                    <router-link to="/home1" class="header-container__right--link" active-class="isActive">Oswego</router-link>
+                    <router-link to="/home2" class="header-container__right--link" active-class="isActive">Columbia</router-link>
+                    <router-link to="/home3" class="header-container__right--link" active-class="isActive">Laurelwood</router-link>
+                    <router-link to="/home4" class="header-container__right--link" active-class="isActive">Willamette</router-link>
+                    <router-link to="" @click.native="doEmailModal" class="header-container__right--link">Contact</router-link>
                 </ul>
             </nav>
           </div>
@@ -24,12 +22,25 @@
 
 <script>
 export default {
+    methods: {
+        doEmailModal() {
+            this.$store.commit('setModalContact', true)
+            this.$store.commit('toggleModal')
+
+        }
+    }
 
 }
 </script>
 
 <style lang="scss">
 @import '../scss/_variables.scss';
+
+.isActive {
+    border-bottom: 2px solid #042a64 !important;
+    border-top: 2px solid #042a64 !important;
+    color: #042a64 !important;
+}
 
 .header {
     background: transparent;
