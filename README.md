@@ -8,6 +8,5 @@ I designed the logo and the layout of the site and am participating in the marke
 Permits are being pulled, and it's looking like the team will be moving dirt early Summer 2020
 
 ### ScreenShot
-![Outbound Prop]
-(https://github.com/kdjordan/outbound/blob/master/outbound-screenshot.png)
+![Outbound Props Screeshot](https://github.com/kdjordan/outbound/blob/master/outbound-screenshot.png)
 
