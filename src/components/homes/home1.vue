@@ -5,7 +5,7 @@
         <div>
             <transition name="raise">
                 <div v-show="detailsOpen" class="details">
-                        <div class="details__title">The Columbia Home</div>
+                        <div class="details__title">The Oswego Home</div>
                         <div class="details__desc">
                             <p>
                             Stunning Country Estate boats custom home nestled in a 10 acre pastoral setting surrounded by beautiful views of the Coburg Hills. This 4 bedroom home offers the master on the main level w/private patio & updated master bath w/sitting area & oversized shower, Formal living & dining room w/open concept kitchen, French doors out to a covered patio perfect for entertaining or relaxing and enjoying the beautiful landscaping, pastures or take a walk down by the creek. Truly a Dream!

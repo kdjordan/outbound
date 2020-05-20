@@ -140,7 +140,7 @@ input {
     width: 100vw;
     height: 100vh;
     background: $color2;
-    opacity: 97%;
+    opacity: .97;
     z-index: 20;
 }
 

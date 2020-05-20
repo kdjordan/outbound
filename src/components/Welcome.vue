@@ -186,11 +186,11 @@ img {
             font-size: 2rem;
             margin: 0 2rem;
             padding: .2rem;
-            opacity: 30%;
+            opacity: .5;
 
             &:hover {
                 cursor: pointer;
-                opacity: 10%;
+                opacity: .1;
             }
         }
     }
