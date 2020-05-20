@@ -1,4 +1,4 @@
-# outbound
+# Outbound Properties
 
 > A Client Vue.js project for a new development in NE Portland Oregon
 
