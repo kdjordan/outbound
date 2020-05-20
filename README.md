@@ -4,8 +4,8 @@
 
 This site is still under development.
 I am waiting on content to fill in the dummy text that I have provided.
-I designed the log and tthe layout of the site and am participating in the marketing copy.
-Permits are benig pulled, and it's looking like the team will be moving dirt early Summer 2020
+I designed the logo and the layout of the site and am participating in the marketing copy.
+Permits are being pulled, and it's looking like the team will be moving dirt early Summer 2020
 
 ## Build Setup
 
